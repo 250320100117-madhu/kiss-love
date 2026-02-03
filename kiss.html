@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Kiss Day 💋</title>
+
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        background: linear-gradient(to bottom, #ff416c, #ff4b2b);
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Segoe UI', sans-serif;
+        color: #fff;
+        text-align: center;
+    }
+
+    .card {
+        z-index: 2;
+        background: rgba(255,255,255,0.15);
+        padding: 35px;
+        border-radius: 25px;
+        box-shadow: 0 0 30px rgba(255,255,255,0.4);
+        animation: fadeIn 2s ease-in-out;
+    }
+
+    h1 {
+        font-size: 3em;
+        text-shadow: 0 0 20px pink;
+    }
+
+    p {
+        font-size: 1.4em;
+        margin-top: 12px;
+        line-height: 1.6;
+    }
+
+    button {
+        margin-top: 20px;
+        padding: 12px 35px;
+        font-size: 18px;
+        border: none;
+        border-radius: 30px;
+        background: #ff1e56;
+        color: white;
+        cursor: pointer;
+        box-shadow: 0 0 15px #ffb6c1;
+    }
+
+    button:hover {
+        background: #ff3b6f;
+    }
+
+    .kiss {
+        position: absolute;
+        font-size: 30px;
+        animation: float 6s linear infinite;
+    }
+
+    @keyframes float {
+        0% { top: -10%; opacity: 1; }
+        100% { top: 110%; opacity: 0; }
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: scale(0.8); }
+        to { opacity: 1; transform: scale(1); }
+    }
+</style>
+</head>
+
+<body>
+
+<audio id="music" loop>
+    <source src="kiss.mp3" type="audio/mpeg">
+</audio>
+
+<div class="card">
+    <h1>💋 Happy Kiss Day 💋</h1>
+    <p>
+        A kiss is not just a kiss 😘<br>
+        It’s a promise of love ❤️<br>
+        a moment of closeness 💕<br><br>
+        Sending you my sweetest kiss 💋
+    </p>
+    <button onclick="playMusic()">Kiss for You 😘</button>
+</div>
+
+<script>
+function playMusic() {
+    var song = document.getElementById("music");
+    song.playbackRate = 1.0; // romantic speed
+    song.play();
+    alert("A kiss sealed with love Umhaa 💋❤️");
+}
+
+// Kiss emoji floating animation
+setInterval(() => {
+    const kiss = document.createElement("div");
+    kiss.className = "kiss";
+    kiss.innerHTML = "💋";
+    kiss.style.left = Math.random() * 100 + "vw";
+    kiss.style.animationDuration = (Math.random() * 3 + 3) + "s";
+    document.body.appendChild(kiss);
+
+    setTimeout(() => {
+        kiss.remove();
+    }, 6000);
+}, 450);
+</script>
+
+</body>
+</html>
